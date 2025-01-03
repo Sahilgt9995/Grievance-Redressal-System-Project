@@ -2,22 +2,13 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 
 export const serverRoutes: ServerRoute[] = [
   {
-    path: 'admin/task/:id/edit',
+    path: 'admin/task/:id/view',
     renderMode: RenderMode.Prerender,
     getPrerenderParams: async () => {
       return [
-        { id: '1' }, // Example parameter
+        { id: '1' },
         { id: '2' },
-      ];
-    },
-  },
-  {
-    path: 'employee/task/:id/view',
-    renderMode: RenderMode.Prerender,
-    getPrerenderParams: async () => {
-      return [
-        { id: '101' }, // Example parameter
-        { id: '102' },
+        { id: '3' }, // Replace with actual IDs you want to prerender
       ];
     },
   },
