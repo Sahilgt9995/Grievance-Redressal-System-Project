@@ -3,11 +3,23 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 export const serverRoutes: ServerRoute[] = [
   {
     path: 'admin/task/:id/edit',
-    renderMode: RenderMode.Client, // Renders on the client side
+    renderMode: RenderMode.Prerender,
+    getPrerenderParams: async () => {
+      return [
+        { id: '1' }, // Example parameter
+        { id: '2' },
+      ];
+    },
   },
   {
     path: 'employee/task/:id/view',
-    renderMode: RenderMode.Client, // Renders on the client side
+    renderMode: RenderMode.Prerender,
+    getPrerenderParams: async () => {
+      return [
+        { id: '101' }, // Example parameter
+        { id: '102' },
+      ];
+    },
   },
   {
     path: '**',
