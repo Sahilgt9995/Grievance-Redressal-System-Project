@@ -1,6 +1,6 @@
 
 export default {
-  basePath: 'C:/Program Files/Git/Grievance-Redressal-System-Project/',
+  basePath: '/',
   entryPoints: {
     '': () => import('./main.server.mjs')
   },

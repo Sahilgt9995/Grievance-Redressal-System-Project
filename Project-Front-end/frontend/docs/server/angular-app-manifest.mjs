@@ -2,7 +2,7 @@
 export default {
   bootstrap: () => import('./main.server.mjs').then(m => m.default),
   inlineCriticalCss: true,
-  baseHref: 'C:/Program Files/Git/Grievance-Redressal-System-Project/',
+  baseHref: '/',
   locale: undefined,
   routes: [
   {
