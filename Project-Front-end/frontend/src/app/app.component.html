@@ -1,0 +1,55 @@
+<div *ngIf="!isAdminLoggedIn && !isEmployeeLoggedIn && !isUserLoggedIn">
+  <mat-toolbar color="primary" class="navbar">
+    <span class="navbar-brand">Grievance Redressal System</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/" routerLinkActive="active">Home</button>
+    <button mat-button routerLink="/aboutus" routerLinkActive="active">AboutUs</button>
+    <button mat-button routerLink="/contactus" routerLinkActive="active">ContactUs</button>
+    <!--<button mat-button routerLink="/register" routerLinkActive="active">Register</button>-->
+
+    <button mat-button [matMenuTriggerFor]="registerMenu">Register</button> 
+    <mat-menu #registerMenu="matMenu"> 
+      <button mat-menu-item routerLink="/register" routerLinkActive="active" class="user-button" [ngStyle]="{'color': 'blue'}">User</button>
+       <button mat-menu-item routerLink="/register" routerLinkActive="active" class="employee-button" [ngStyle]="{'color': 'blue'}">Employee</button> 
+      </mat-menu>
+
+      <button mat-button [matMenuTriggerFor]="loginMenu">Login</button> 
+    <mat-menu #loginMenu="matMenu"> 
+      <button mat-menu-item routerLink="/login" routerLinkActive="active" class="user-button" [ngStyle]="{'color': 'blue'}">User</button>
+      <button mat-menu-item routerLink="/login" routerLinkActive="active" class="admin-button" [ngStyle]="{'color': 'blue'}">Admin</button> 
+      <button mat-menu-item routerLink="/login" routerLinkActive="active" class="employee-button" [ngStyle]="{'color': 'blue'}">Employee</button> 
+      </mat-menu>
+    <!--<button mat-button routerLink="/login" routerLinkActive="active">Login</button>-->
+  </mat-toolbar>
+</div>
+
+<div *ngIf="isAdminLoggedIn">
+  <mat-toolbar color="primary" class="navbar">
+    <span class="navbar-brand">Grievance Redressal System</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/admin/dashboard" routerLinkActive="active">Admin Dashboard</button>
+    <button mat-button routerLink="/admin/task/post" routerLinkActive="active">Post Task</button>
+    <button mat-button routerLink="/admin/showgrievance" routerLinkActive="active">Show Grievance</button>
+    <button mat-button  routerLinkActive="active" (click)="logout()">Logout</button>
+  </mat-toolbar>
+</div>
+
+<div *ngIf="isEmployeeLoggedIn">
+  <mat-toolbar color="primary" class="navbar">
+    <span class="navbar-brand">Grievance Redressal System</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/employee/dashboard" routerLinkActive="active">Employee Dashboard</button>
+    <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
+  </mat-toolbar>
+</div>
+
+<div *ngIf="isUserLoggedIn">
+  <mat-toolbar color="primary" class="navbar">
+    <span class="navbar-brand">Grievance Redressal System</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/user/dashboard" routerLinkActive="active"> Dashboard</button>
+    <button mat-button routerLink="/user/grievance" routerLinkActive="active">Submit Grievance</button>
+    <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
+  </mat-toolbar>
+</div>
+<router-outlet></router-outlet>
